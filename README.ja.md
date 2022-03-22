@@ -6,11 +6,7 @@
 
 # デモ
 
-![]()
-
-# 特徴
-
-* セールスポイント
+![DEMO](https://ytyaru.github.io/Html.PaperTexturesKit.20220322095221/)
 
 # 開発環境
 
@@ -37,16 +33,13 @@ cd Html.PaperTexturesKit.20220322095221/src
 ./run.sh
 ```
 
-# 注意
-
-* 注意点など
-
 # 著者
 
 　ytyaru
 
 * [![github](http://www.google.com/s2/favicons?domain=github.com)](https://github.com/ytyaru "github")
 * [![hatena](http://www.google.com/s2/favicons?domain=www.hatena.ne.jp)](http://ytyaru.hatenablog.com/ytyaru "hatena")
+* [![twitter](http://www.google.com/s2/favicons?domain=twitter.com)](https://twitter.com/ytyaru1 "twitter")
 * [![mastodon](http://www.google.com/s2/favicons?domain=mstdn.jp)](https://mstdn.jp/web/accounts/233143 "mastdon")
 
 # ライセンス
