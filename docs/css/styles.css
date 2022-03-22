@@ -1,0 +1,118 @@
+@charset "utf-8";
+:root {
+    --line-of-chars:20;
+    --writing-mode:vertical-rl;
+    --text-orientation:upright;
+    --background-image: url("../assets/image/textures/08.jpg");
+}
+/* writing-mode: horizontal-tb; */
+/*
+@media screen and (max-width: 640px) { :root { --line-of-chars:20; } }
+@media screen and (min-width: 641px) and (max-width: 799px)  { :root { --line-of-chars:25; } }
+@media screen and (min-width: 800px) and (max-width: 1023px)  { :root { --line-of-chars:28; } }
+@media screen and (min-width: 1024px) and (max-width: 1279px)  { :root { --line-of-chars:32; } }
+@media screen and (min-width: 1280px) and (max-width: 1919px) { :root { --line-of-chars:35; } }
+@media screen and (min-width: 1920px) and (max-width: 3839px) { :root { --line-of-chars:40; } }
+@media screen and (min-width: 3840px) and (max-width: 7679px) { :root { --line-of-chars:40; --column-count:2; } }
+@media screen and (min-width: 7680px) and (max-width: 99999999px) { :root { --line-of-chars:40; --column-count:3; } }
+*/
+/* writing-mode: vertical-rl; */
+@media screen and (max-height: 640px) { :root { --line-of-chars:20; } }
+@media screen and (min-height: 641px) and (max-height: 799px)  { :root { --line-of-chars:25; } }
+@media screen and (min-height: 800px) and (max-height: 1023px)  { :root { --line-of-chars:28; } }
+@media screen and (min-height: 1024px) and (max-height: 1279px)  { :root { --line-of-chars:32; } }
+@media screen and (min-height: 1280px) and (max-height: 1919px) { :root { --line-of-chars:35; } }
+@media screen and (min-height: 1920px) and (max-height: 3840px) { :root { --line-of-chars:40; } }
+@media screen and (min-height: 3840px) and (max-height: 1279px) { :root { --line-of-chars:40; --column-count:2; } }
+@media screen and (min-height: 7680px) and (max-height: 99999999px) { :root { --line-of-chars:40; --column-count:3; } }
+
+@media (prefers-color-scheme: light) {
+:root {
+    --background-color: white;
+    --color: black;
+    --a-color: blue;
+    --sub-font-color: #666666;
+    --selected-background-color: lightcyan;
+    --selected-color: var(--color);
+    --disabled-color: #AAAAAA;
+    --invert:0%;
+    --background-blend-mode:normal;
+    /*--background-image-id:4;*/
+}
+}
+@media (prefers-color-scheme: dark) {
+:root {
+    --background-color: black;
+    --color: white;
+    --a-color: yellow;
+    --sub-font-color: #CCCCCC;
+    --selected-background-color: saddlebrown;
+    --selected-color: var(--color);
+    --disabled-color: #AAAAAA;
+    --invert:100%;
+    --background-blend-mode:difference;
+}
+}
+@font-face {
+    font-family: IPAex明朝;
+    src: local('IPAex明朝'), 
+         local('ipaexm.ttf') format('opentype'),
+         local('fonts-japanese-mincho.ttf') format('truetype'),
+         url('https://cdn.leafscape.be/IPAexfont/ipaexm_web.woff2') format("woff2");
+}
+@font-face {
+    font-family: IPAexゴシック;
+    src: local('IPAexゴシック'), 
+         local('IPAexGothic'), 
+         local('ipaexg.ttf') format('truetype'),
+         local('fonts-japanese-gothic.ttf') format('truetype'),
+         local('fonts-japanese-mincho.ttf') format('truetype'),
+         url('https://cdn.leafscape.be/IPAexfont/ipaexg_web.woff2') format("woff2");
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: 'Noto Serif JP', 'IPAex明朝', serif; 
+    font-size: calc(100vh / (var(--line-of-chars))); /* vertical-rl */
+    writing-mode: var(--writing-mode); /* vertical-rl, horizontal-tb */
+    text-orientation: var(--text-orientation); /* upright, sideways */
+    line-height:1.75em;         /* 行間 1.5〜2.0em */
+    letter-spacing:0.075em;     /* 字間 0.05〜0.1em */
+    /*background-image: url("../assets/image/textures/04.jpg");*/
+    background-image: var(--background-image);
+    background-repeat:repeat;
+    filter: invert(var(--invert));
+    -webkit-filter: invert(var(--invert));
+    background-blend-mode:var(--background-blend-mode);
+    
+}
+p {
+/*    text-indent: 1em;*/ /* 字下げは文字でやる仕様にしたい。 */
+    margin-block-end: var(--p-margin-block-end);
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Noto Sans JP', 'IPAexゴシック', sans-serif; 
+    font-feature-settings: "palt"; /* カーニング */
+    letter-spacing: 0px;
+    text-align: center;
+    margin-block-start: 0.25em;
+    margin-block-end: 0.25em;
+}
+h1 { font-size: 2em; }
+h2 { font-size: 1.75em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.25em; }
+h5 { font-size: 1.0em; }
+h6 { font-size: 1.0em; }
+a { color: var(--a-color); }
+.upright {
+    text-combine-upright: all; /* 縦中横 */
+    letter-spacing: 0; /* 字間 */
+    text-transform: full-width; /* 全字全角 */
+}
+img.icon {
+    width: 1em;
+    height: 1em;
+}
